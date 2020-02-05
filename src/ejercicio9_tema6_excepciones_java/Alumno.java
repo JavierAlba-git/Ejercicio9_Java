@@ -80,10 +80,10 @@ public class Alumno {
      * @param nnota variable double que representa la nota que vamos a 
      *        introducir en el array
      * @throws RangoException
-     * @throws Exception 
+     * @throws IndexOutOfBoundsException
      */
     public void modificarNota(int posicion, double nnota)
-    throws RangoException, Exception
+    throws RangoException, IndexOutOfBoundsException
     {
         Scanner teclado=new Scanner(System.in);
         System.out.print("Dame la posición: ");

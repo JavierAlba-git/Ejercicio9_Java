@@ -11,7 +11,7 @@ public class Ejercicio9_tema6_excepciones_Java {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner teclado=new Scanner(System.in);
         Alumno alumno=new Alumno();
         
@@ -23,30 +23,27 @@ public class Ejercicio9_tema6_excepciones_Java {
         try
         {
             alumno.pedirNotas();
+            try
+            {
+                try
+                {
+                    alumno.modificarNota(0, 0);
+                    alumno.imprimirCalificaciones();
+                }
+                catch(RangoException error)
+                {
+                    System.out.println(error.getMessage());
+                }                
+            }
+            catch(IndexOutOfBoundsException error)
+            {
+            System.out.println("Error, posición no válida("+error.getMessage()+").");
+            }         
         }
         catch(RangoException error)
         {
             System.out.println(error.getMessage());
-        }
-        
-        try
-        {
-            try
-            {
-                alumno.modificarNota(0, 0);
-            }
-            catch(RangoException error)
-            {
-                System.out.println(error.getMessage());
-            }
-        
-        }
-        catch(Exception error)
-        {
-            System.out.println(error.toString());
-        }
-        
-        alumno.imprimirCalificaciones(); 
+        }       
     }
     
 }
