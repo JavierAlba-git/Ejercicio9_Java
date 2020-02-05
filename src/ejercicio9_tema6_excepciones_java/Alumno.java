@@ -119,7 +119,20 @@ public class Alumno {
             System.out.println(error.toString());
         }
     }
-
+    /**
+     * Método que imprimirá por pantalla tanto el nombre del alumno como todas
+     * sus notas.
+     */
+    public void imprimirCalificaciones()
+    {
+        int cont=1;
+        System.out.println("Alumno: "+nalumno);
+        for (int i = 0; i < notas.size(); i++) 
+        {
+            System.out.println("Nota "+cont+": "+notas.get(i));
+            cont++;
+        }
+    }
     
     
     
