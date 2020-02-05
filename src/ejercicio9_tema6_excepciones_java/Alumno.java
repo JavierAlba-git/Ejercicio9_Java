@@ -55,13 +55,11 @@ public class Alumno {
     {
         Scanner teclado=new Scanner(System.in);
         double nota;
-        try
+        for (int i = 0; i < n_asignaturas; i++) 
         {
-            for (int i = 0; i < n_asignaturas; i++) 
-            {
-                System.out.print("Dame la nota del alumno: ");
-                nota=teclado.nextDouble();
-                if(nota<0 || nota>10)
+            System.out.print("Dame la nota del alumno: ");
+            nota=teclado.nextDouble();
+            if(nota<0 || nota>10)
                 {
                     throw new RangoException("Error. Nota no válida");
                 }
@@ -69,12 +67,9 @@ public class Alumno {
                 {
                     notas.add(nota);
                 }
-            }
+            
         }
-        catch(RangoException error)
-        {
-            System.out.println(error.getMessage());
-        }
+                
     }
     /**
      * Método en el cúal seleccionaremos una posición del array de notas, y si
@@ -91,33 +86,19 @@ public class Alumno {
     throws RangoException, Exception
     {
         Scanner teclado=new Scanner(System.in);
-        try
+        System.out.print("Dame la posición: ");
+        posicion=teclado.nextInt();
+        notas.get(posicion);
+        System.out.print("Dame la nota del alumno: ");
+        nnota=teclado.nextDouble();
+        if(nnota<0 || nnota>10)
         {
-            System.out.println("Dame la posición");
-            posicion=teclado.nextInt();
-            notas.get(posicion);
-            try
-            {
-                System.out.print("Dame la nota del alumno: ");
-                nnota=teclado.nextDouble();
-                if(nnota<0 || nnota>10)
-                {
-                    throw new RangoException("Error. Nota no válida");
-                }
-                else
-                {
-                    notas.set(posicion, nnota);
-                }
-            }
-            catch(RangoException error)
-            {
-                System.out.println(error.getMessage());
-            }
+            throw new RangoException("Error. Nota no válida");
         }
-        catch(Exception error)
+        else
         {
-            System.out.println(error.toString());
-        }
+            notas.set(posicion, nnota);
+        }   
     }
     /**
      * Método que imprimirá por pantalla tanto el nombre del alumno como todas
