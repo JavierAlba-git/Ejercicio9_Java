@@ -2,6 +2,7 @@
 package ejercicio9_tema6_excepciones_java;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Clase Alumno
@@ -44,7 +45,37 @@ public class Alumno {
     {
         this.nalumno = nalumno;
     }
-    
+    /**
+     * Método en el que se nos pedirán por teclado las notas del alumno, si 
+     * la nota del alumno se sale del intervalo(0,10), aparecerá un error y el 
+     * programa se detendrá.
+     * @throws RangoException 
+     */
+    public void pedirNotas() throws RangoException
+    {
+        Scanner teclado=new Scanner(System.in);
+        double nota;
+        try
+        {
+            for (int i = 0; i < n_asignaturas; i++) 
+            {
+                System.out.print("Dame la nota del alumno: ");
+                nota=teclado.nextDouble();
+                if(nota<0 || nota>10)
+                {
+                    throw new RangoException("Error. Nota no válida");
+                }
+                else
+                {
+                    notas.add(nota);
+                }
+            }
+        }
+        catch(RangoException error)
+        {
+            System.out.println(error.getMessage());
+        }
+    }
     
     
     
