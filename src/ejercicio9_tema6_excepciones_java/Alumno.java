@@ -76,6 +76,50 @@ public class Alumno {
             System.out.println(error.getMessage());
         }
     }
+    /**
+     * Método en el cúal seleccionaremos una posición del array de notas, y si
+     * está es una posición válida, podremos modificar la nota del alumno 
+     * siempre y cuando esta esté dentro del intervalo (0,10).
+     * @param posicion variable int que representa a la posición del array que 
+     *        estamos buscando. 
+     * @param nnota variable double que representa la nota que vamos a 
+     *        introducir en el array
+     * @throws RangoException
+     * @throws Exception 
+     */
+    public void modificarNota(int posicion, double nnota)
+    throws RangoException, Exception
+    {
+        Scanner teclado=new Scanner(System.in);
+        try
+        {
+            System.out.println("Dame la posición");
+            posicion=teclado.nextInt();
+            notas.get(posicion);
+            try
+            {
+                System.out.print("Dame la nota del alumno: ");
+                nnota=teclado.nextDouble();
+                if(nnota<0 || nnota>10)
+                {
+                    throw new RangoException("Error. Nota no válida");
+                }
+                else
+                {
+                    notas.set(posicion, nnota);
+                }
+            }
+            catch(RangoException error)
+            {
+                System.out.println(error.getMessage());
+            }
+        }
+        catch(Exception error)
+        {
+            System.out.println(error.toString());
+        }
+    }
+
     
     
     
