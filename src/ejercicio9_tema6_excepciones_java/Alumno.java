@@ -28,6 +28,24 @@ public class Alumno {
     {
         this.nalumno = nalumno;
     }
+    /**
+     * Método get de nalumno
+     * @return nalumno, con el nombre asignado
+     */
+    public String getNalumno() 
+    {
+        return nalumno;
+    }
+    /**
+     * Método set de nalumno
+     * @param nalumno variable String que representa al nombre del alumno
+     */
+    public void setNalumno(String nalumno) 
+    {
+        this.nalumno = nalumno;
+    }
+    
+    
     
     
     
